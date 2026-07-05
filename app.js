@@ -144,7 +144,6 @@ function selectHistory(index) {
   });
   historyIndex = index;
   renderHistory();
-  setStatus(`Histórico: "${entry.fontFamily}" ativo.`);
 }
 
 function addToHistory(entry) {
