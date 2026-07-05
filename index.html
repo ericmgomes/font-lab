@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Font Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="controls" aria-label="Controles da fonte">
+        <div class="brand">
+          <span class="brand-mark">Aa</span>
+          <div>
+            <h1>Font Lab</h1>
+            <p>Teste fontes em texto real e UI de produto.</p>
+          </div>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span>Light</span>
+          <i aria-hidden="true"></i>
+          <span>Dark</span>
+        </button>
+
+        <form class="font-loader" id="fontForm">
+          <label for="fontUrl">URL da fonte</label>
+          <div class="input-row">
+            <input
+              id="fontUrl"
+              name="fontUrl"
+              type="url"
+              placeholder="https://www.dafont.com/pt/squarefont.font"
+              autocomplete="off"
+            />
+            <button type="submit">Carregar</button>
+          </div>
+          <p class="hint" id="sourceHint">
+            Aceita URLs do Dafont, páginas do Google Fonts, CSS do Google Fonts, arquivos .woff/.woff2/.ttf/.otf e upload local.
+          </p>
+        </form>
+
+        <div class="status" id="status" role="status">Cole uma URL ou solte um arquivo de fonte para começar.</div>
+
+        <div class="upload-box">
+          <label for="fontFile">Arquivo local</label>
+          <input id="fontFile" type="file" accept=".woff,.woff2,.ttf,.otf" />
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">
+            <span>Fonte ativa</span>
+            <strong id="activeFont">System UI</strong>
+          </div>
+          <div class="history-controls" aria-label="Histórico de fontes">
+            <button class="icon-button" id="previousFont" type="button" aria-label="Fonte anterior" title="Fonte anterior">←</button>
+            <span id="historyPosition">0 / 0</span>
+            <button class="icon-button" id="nextFont" type="button" aria-label="Próxima fonte" title="Próxima fonte">→</button>
+          </div>
+          <div class="history-list" id="historyList" aria-label="Fontes experimentadas"></div>
+          <div class="active-url-box">
+            <label for="activeFontUrl">URL ativa</label>
+            <div class="url-actions">
+              <input id="activeFontUrl" type="text" value="" readonly />
+              <button class="mini-button" id="copyFontUrl" type="button">Copy</button>
+              <button class="mini-button" id="pasteFontUrl" type="button">Paste</button>
+            </div>
+          </div>
+          <div class="meta-grid">
+            <span>Origem</span><b id="fontSource">Padrão</b>
+            <span>Peso</span><b id="weightValue">500</b>
+            <span>Tamanho</span><b id="sizeValue">22px</b>
+          </div>
+        </section>
+
+        <section class="sliders">
+          <label for="fontSize">Tamanho</label>
+          <input id="fontSize" type="range" min="14" max="56" value="22" />
+
+          <label for="fontWeight">Peso</label>
+          <input id="fontWeight" type="range" min="100" max="900" step="100" value="500" />
+
+          <label for="lineHeight">Altura de linha</label>
+          <input id="lineHeight" type="range" min="95" max="180" value="130" />
+        </section>
+
+        <section class="panel">
+          <label for="sampleText">Texto de teste</label>
+          <textarea id="sampleText" rows="5">A tipografia certa muda o ritmo de uma interface. Ela ajuda o olhar a decidir onde pousar, o que comparar e quando seguir em frente.</textarea>
+        </section>
+      </aside>
+
+      <section class="preview-column dashboard-column" id="dashboardView" aria-label="Prévia em dashboard">
+        <div class="dashboard font-surface">
+          <header class="dash-header">
+            <div>
+              <p class="eyebrow">Operações</p>
+              <h2>Painel de assinaturas</h2>
+            </div>
+            <button type="button">Exportar</button>
+          </header>
+
+          <div class="metrics">
+            <article>
+              <span>Receita</span>
+              <strong>R$ 84.320</strong>
+              <small>+12,4% no mês</small>
+            </article>
+            <article>
+              <span>Conversão</span>
+              <strong>7,8%</strong>
+              <small>+1,1 ponto</small>
+            </article>
+            <article>
+              <span>Tickets</span>
+              <strong>214</strong>
+              <small>32 em aberto</small>
+            </article>
+          </div>
+
+          <div class="dash-grid">
+            <section class="chart-panel">
+              <div class="chart-head">
+                <b>Crescimento semanal</b>
+                <span>Últimos 7 dias</span>
+              </div>
+              <div class="bars" aria-hidden="true">
+                <i style="height: 38%"></i>
+                <i style="height: 52%"></i>
+                <i style="height: 47%"></i>
+                <i style="height: 68%"></i>
+                <i style="height: 72%"></i>
+                <i style="height: 64%"></i>
+                <i style="height: 88%"></i>
+              </div>
+            </section>
+            <section class="table-panel">
+              <div class="chart-head">
+                <b>Clientes recentes</b>
+                <span>Hoje</span>
+              </div>
+              <table>
+                <tbody>
+                  <tr><td>Northstar</td><td>Pro</td><td>R$ 890</td></tr>
+                  <tr><td>Alameda Lab</td><td>Team</td><td>R$ 420</td></tr>
+                  <tr><td>Studio Mar</td><td>Basic</td><td>R$ 120</td></tr>
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-column text-column" aria-label="Prévia em texto e specimen">
+        <article class="article-preview font-surface" id="editorView">
+          <p class="eyebrow">Revista digital</p>
+          <h2>Quando a fonte encontra a interface</h2>
+          <p id="articleText">
+            A tipografia certa muda o ritmo de uma interface. Ela ajuda o olhar a decidir onde pousar, o que comparar e quando seguir em frente.
+          </p>
+          <div class="article-actions">
+            <button type="button">Publicar</button>
+            <button class="secondary" type="button">Pré-visualizar</button>
+          </div>
+        </article>
+
+        <section class="specimen font-surface" id="specimenView">
+          <div class="glyph-row">Aa Bb Cc 123</div>
+          <div class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789 &amp; ? ! @ # %</div>
+          <div class="sizes">
+            <p style="font-size: 16px">16px: Produto, dados, navegação e leitura longa.</p>
+            <p style="font-size: 24px">24px: Produto, dados, navegação e leitura longa.</p>
+            <p style="font-size: 36px">36px: Produto, dados, navegação.</p>
+            <p style="font-size: 52px">52px: Display</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
