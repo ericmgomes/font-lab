@@ -53,8 +53,7 @@ body {
 }
 
 button,
-input,
-textarea {
+input {
   font: inherit;
 }
 
@@ -210,8 +209,7 @@ label {
   gap: 8px;
 }
 
-input[type="url"],
-textarea {
+input[type="url"] {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -222,17 +220,6 @@ textarea {
 input[type="url"] {
   min-height: 42px;
   padding: 0 12px;
-}
-
-textarea {
-  min-height: 120px;
-  resize: vertical;
-  padding: 12px;
-  line-height: 1.45;
-}
-
-input[type="file"] {
-  width: 100%;
 }
 
 .hint {
@@ -451,6 +438,20 @@ input[type="range"] {
   font-size: var(--sample-size);
   font-weight: var(--sample-weight);
   line-height: var(--sample-line);
+}
+
+[data-editable-text="true"] {
+  border-radius: 4px;
+  outline: 0 solid transparent;
+}
+
+[data-editable-text="true"]:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+[data-editable-text="true"]:focus {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 38%, transparent);
 }
 
 .article-preview,

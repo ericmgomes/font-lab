@@ -5,8 +5,6 @@ const activeFont = document.querySelector("#activeFont");
 const fontSource = document.querySelector("#fontSource");
 const sourceHint = document.querySelector("#sourceHint");
 const status = document.querySelector("#status");
-const sampleText = document.querySelector("#sampleText");
-const articleText = document.querySelector("#articleText");
 const fontSize = document.querySelector("#fontSize");
 const fontWeight = document.querySelector("#fontWeight");
 const sizeValue = document.querySelector("#sizeValue");
@@ -354,10 +352,6 @@ fontForm.addEventListener("submit", (event) => {
   }
 });
 
-sampleText.addEventListener("input", () => {
-  articleText.textContent = sampleText.value || "Digite um texto para testar a fonte.";
-});
-
 fontSize.addEventListener("input", () => {
   root.style.setProperty("--sample-size", `${fontSize.value}px`);
   sizeValue.textContent = `${fontSize.value}px`;
@@ -400,9 +394,19 @@ pasteFontUrl.addEventListener("click", async () => {
   }
 });
 
+document
+  .querySelectorAll(
+    ".font-surface h2, .font-surface p, .font-surface span, .font-surface strong, .font-surface small, .font-surface b, .font-surface td, .font-surface .glyph-row, .font-surface .alphabet",
+  )
+  .forEach((element) => {
+    element.contentEditable = "true";
+    element.spellcheck = false;
+    element.dataset.editableText = "true";
+  });
+
 document.addEventListener("keydown", (event) => {
   const tagName = event.target.tagName;
-  const isTyping = tagName === "INPUT" || tagName === "TEXTAREA" || event.target.isContentEditable;
+  const isTyping = tagName === "INPUT" || event.target.isContentEditable;
   if (isTyping) return;
 
   if (event.key === "ArrowLeft") {
