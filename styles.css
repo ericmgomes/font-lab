@@ -378,6 +378,19 @@ input[type="file"] {
   border: 1px solid var(--line);
 }
 
+.icon-only {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  padding: 0;
+}
+
+.icon-only svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
 .sliders {
   display: grid;
   gap: 10px;
