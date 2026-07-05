@@ -61,7 +61,7 @@ const defaultDafontAssets = {
 };
 
 function setStatus(message, isError = false) {
-  status.textContent = message;
+  status.textContent = isError ? message : "";
   status.style.color = isError ? "var(--danger)" : "var(--muted)";
 }
 

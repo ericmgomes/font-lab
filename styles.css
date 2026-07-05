@@ -418,6 +418,10 @@ input[type="range"] {
   font-size: 14px;
 }
 
+.status:empty {
+  display: none;
+}
+
 .preview-column {
   min-width: 0;
   padding: 18px;
