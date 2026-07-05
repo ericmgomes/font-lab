@@ -1,7 +1,6 @@
 const root = document.documentElement;
 const fontForm = document.querySelector("#fontForm");
 const fontUrl = document.querySelector("#fontUrl");
-const fontFile = document.querySelector("#fontFile");
 const activeFont = document.querySelector("#activeFont");
 const fontSource = document.querySelector("#fontSource");
 const sourceHint = document.querySelector("#sourceHint");
@@ -297,29 +296,6 @@ async function loadDafontFont(url) {
   setStatus(`Fonte "${fontName}" carregada pela URL do Dafont.`);
 }
 
-function loadLocalFont(file) {
-  const valid = fontExtensions.some((extension) => file.name.toLowerCase().endsWith(extension));
-  if (!valid) {
-    setStatus("Use um arquivo .woff, .woff2, .ttf ou .otf.", true);
-    return;
-  }
-
-  const family = familyFromFileName(file.name);
-  cleanupInjectedFont();
-  const fontUrl = URL.createObjectURL(file);
-
-  applyFont(family, "Upload local", { fontUrl });
-  addToHistory({
-    key: `local:${file.name}:${file.size}:${file.lastModified}`,
-    fontFamily: family,
-    sourceLabel: "Upload local",
-    sourceUrl: file.name,
-    fontUrl,
-  });
-  setHint("Fonte local carregada só nesta sessão do navegador.");
-  setStatus(`Fonte local "${family}" carregada.`);
-}
-
 async function loadFromUrl(value) {
   const url = value.trim();
   const parsed = new URL(url);
@@ -340,7 +316,7 @@ async function loadFromUrl(value) {
     return;
   }
 
-  throw new Error("Cole uma URL do Google Fonts, uma URL direta de arquivo de fonte ou faça upload local.");
+  throw new Error("Cole uma URL do Google Fonts, Dafont ou uma URL direta de arquivo de fonte.");
 }
 
 async function loadDefaultHistory() {
@@ -377,11 +353,6 @@ fontForm.addEventListener("submit", (event) => {
   } catch (error) {
     setStatus(error.message, true);
   }
-});
-
-fontFile.addEventListener("change", (event) => {
-  const [file] = event.target.files;
-  if (file) loadLocalFont(file);
 });
 
 sampleText.addEventListener("input", () => {
