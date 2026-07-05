@@ -9,7 +9,6 @@ const sampleText = document.querySelector("#sampleText");
 const articleText = document.querySelector("#articleText");
 const fontSize = document.querySelector("#fontSize");
 const fontWeight = document.querySelector("#fontWeight");
-const lineHeight = document.querySelector("#lineHeight");
 const sizeValue = document.querySelector("#sizeValue");
 const weightValue = document.querySelector("#weightValue");
 const themeToggle = document.querySelector("#themeToggle");
@@ -367,10 +366,6 @@ fontSize.addEventListener("input", () => {
 fontWeight.addEventListener("input", () => {
   root.style.setProperty("--sample-weight", fontWeight.value);
   weightValue.textContent = fontWeight.value;
-});
-
-lineHeight.addEventListener("input", () => {
-  root.style.setProperty("--sample-line", String(Number(lineHeight.value) / 100));
 });
 
 themeToggle.addEventListener("click", () => {
