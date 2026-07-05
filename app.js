@@ -16,7 +16,6 @@ const historyPosition = document.querySelector("#historyPosition");
 const historyList = document.querySelector("#historyList");
 const activeFontUrl = document.querySelector("#activeFontUrl");
 const copyFontUrl = document.querySelector("#copyFontUrl");
-const pasteFontUrl = document.querySelector("#pasteFontUrl");
 
 let injectedLink;
 let injectedStyle;
@@ -381,16 +380,6 @@ copyFontUrl.addEventListener("click", async () => {
     activeFontUrl.select();
     document.execCommand("copy");
     setStatus("URL da fonte ativa copiada.");
-  }
-});
-
-pasteFontUrl.addEventListener("click", async () => {
-  try {
-    const text = await navigator.clipboard.readText();
-    fontUrl.value = text.trim();
-    setStatus("URL colada no campo de entrada. Clique em Carregar para testar.");
-  } catch {
-    setStatus("Não consegui ler a área de transferência neste navegador.", true);
   }
 });
 
