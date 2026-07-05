@@ -242,6 +242,31 @@ input[type="file"] {
   line-height: 1.35;
 }
 
+.font-search-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.font-search-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--button-soft);
+  color: var(--button-soft-text);
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.font-search-links a:hover {
+  filter: brightness(1.08);
+}
+
 .hint.warning {
   color: var(--danger);
 }
