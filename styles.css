@@ -491,6 +491,14 @@ input[type="range"] {
   max-width: 760px;
 }
 
+.article-body {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-top: 18px;
+}
+
 .article-actions {
   display: flex;
   gap: 10px;
