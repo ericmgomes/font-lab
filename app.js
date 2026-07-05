@@ -332,10 +332,7 @@ async function loadDefaultHistory() {
 
   if (failed.length > 0) {
     setStatus(`Histórico padrão carregado com ${failed.length} falha(s). Confira se o servidor local está rodando para Dafont.`, true);
-    return;
   }
-
-  setStatus(`${history.length} fontes padrão carregadas no histórico.`);
 }
 
 fontForm.addEventListener("submit", (event) => {
